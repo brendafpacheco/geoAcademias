@@ -1,10 +1,11 @@
 {
-  "name": "academias ",
-  "short_name": "visitadas",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "name": "Academias Visitadas",
+  "short_name": "VP",
+  "theme_color": "#feec3b",
+  "background_color": "#feec3b",
   "display": "fullscreen",
-  "Scope": "/",
+  "orientation": "portrait",
+  "Scope": "/academias",
   "start_url": "https://brendafpacheco.github.io/geoAcademias/index.html",
   "icons": [
     {
