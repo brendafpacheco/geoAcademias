@@ -16,7 +16,7 @@
         if('geolocation' in navigator){
             const watcher = navigator.geolocation.watchPosition(function(position){
                 console.log(position);
-                document.write(position.);
+                document.write(position);
             }, function(error){
                console.log(error) 
             }, { enableHighAccuracy: true, maximumAge: 20000, timeout: 20000})
