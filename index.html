@@ -88,34 +88,20 @@
                         radius: 300,
                         type: ['gym']
                     }, callback);
-                    
-                    service.getDetails({
-                        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-                    }, function (place, status) {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            var marker = new google.maps.Marker({
-                                map: map,
-                                position: place.geometry.location
-                            });
-                            google.maps.event.addListener(marker, 'click', function () {
-                                infowindow.setContent('<div><strong>' + place.name +
-                                    '</strong><br>' +
-                                    'Place ID: ' + place.place_id + '<br>' +
-                                    place.formatted_address + '</div>');
-                                infowindow.open(map, this);
-                            });
-                        }
-                    });
+
+
 
                     function callback(results, status) {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            for (var i = 0; i < results.length; i++) {
-                                createMarker(results[i]);
+                        service.getDetails({
+                            placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+                        }, function (place, status) {
+                            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                for (var i = 0; i < results.length; i++) {
+                                    createMarker(results[i]);
+                                }
                             }
-                        }
+                        });
                     }
-
-
 
                     function createMarker(place) {
                         var placeLoc = place.geometry.location;
@@ -124,14 +110,13 @@
                             position: place.geometry.location
                         });
 
-                        // google.maps.event.addListener(marker, 'click', function () {
-                        //     infoWindow.setContent("<p>" + name + "</p>" + "<br>" + "<p>" +
-                        //         formatted_address +
-                        //         "</p>");
-                        //     console.log(place.name);
-                        //     console.log(place.formatted_address);
-                        //     infoWindow.open(map, this);
-                        // });
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.setContent('<div><strong>' + place.name +
+                                '</strong><br>' +
+                                'Place ID: ' + place.place_id + '<br>' +
+                                place.formatted_address + '</div>');
+                            infowindow.open(map, this);
+                        });
                     }
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
