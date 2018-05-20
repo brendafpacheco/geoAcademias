@@ -147,11 +147,13 @@
                     service.nearbySearch({
                         location: pos,
                         radius: 300,
-                        type: ['gym']
-                    }, callback);
-                    service.getDetails({
+                        type: ['gym'],
                         placeId: map.place_id
+                        
                     }, callback);
+                    // service.getDetails({
+                    //     placeId: map.place_id
+                    // }, callback);
 
 
                     function callback(results, status) {
