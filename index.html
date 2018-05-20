@@ -42,13 +42,12 @@
             };
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
-            map.setCenter(pos);
             therequest = {
                     bounds: map.getBounds(),
                     type: 'gym',
                     };
                     service.nearbySearch(therequest, callback);
-
+            map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           },  {enableHighAccuracy: true, maximumAge: 20000, timeout: 20000});
