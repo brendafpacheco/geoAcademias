@@ -84,13 +84,13 @@
                         types: ['gym']
                     };
 
-                    // service = new google.maps.places.PlacesService(map);
-                    // service.nearbySearch(request, callback);
 
 
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('Location found.');
                     map.setCenter(pos);
+                    service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch(request, callback);
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
