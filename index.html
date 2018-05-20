@@ -116,7 +116,7 @@
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent("<p>" + place.name + "</p>" + "<br>" + "<p>" + place.formatted_address +
+                            infoWindow.setContent("<p>" + place.name + "</p>" + "<br>" + "<p>" + formatted_address +
                                 "</p>");
                             console.log(place.name);
                             console.log(place.formatted_address);
