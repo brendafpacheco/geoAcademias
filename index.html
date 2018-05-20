@@ -144,17 +144,14 @@
                     map.setCenter(pos);
                     infoWindow = new google.maps.InfoWindow();
                     var service = new google.maps.places.PlacesService(map);
-                    // service.nearbySearch({
-                    //     location: pos,
-                    //     radius: 300,
-                    //     type: ['gym'],
-                    //     placeId: map.place_id
-                        
-                    // }, callback);
-                    service.getDetails({
+                    service.nearbySearch({
                         location: pos,
                         radius: 300,
                         type: ['gym'],
+                        placeId: map.place_id
+                        
+                    }, callback);
+                    service.getDetails({
                         placeId: map.place_id
                     }, callback);
 
