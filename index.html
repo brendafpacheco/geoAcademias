@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Place details</title>
@@ -33,7 +33,7 @@
         var service = new google.maps.places.PlacesService(map);
 
         service.getDetails({
-          placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+          placeId: map.place_id;
         }, function(place, status) {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             var marker = new google.maps.Marker({
@@ -57,8 +57,10 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzc90nSBntojlneOoLoLHPGfENqqt60Ac&libraries=places&callback=initMap">
     </script>
   </body>
-</html>
-<!-- <!DOCTYPE html>
+</html> -->
+
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -153,7 +155,7 @@
 
                     function callback(results, status) {
                         service.getDetails({
-                            placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+                            placeId: place_id
                         }, function (place, status) {
                             if (status === google.maps.places.PlacesServiceStatus.OK) {
                                 for (var i = 0; i < results.length; i++) {
@@ -171,11 +173,11 @@
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
-                            infowindow.setContent('<div><strong>' + place.name +
+                            infoWindow.setContent('<div><strong>' + place.name +
                                 '</strong><br>' +
                                 'Place ID: ' + place.place_id + '<br>' +
                                 place.formatted_address + '</div>');
-                            infowindow.open(map, this);
+                            infoWindow.open(map, this);
                         });
                     }
                 }, function () {
@@ -201,4 +203,4 @@
         async defer></script>
 </body>
 
-</html> -->
+</html>
