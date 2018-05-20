@@ -71,8 +71,6 @@
                 map: map
             });
 
-                    
-            // Try HTML5 geolocation.
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(function (position) {
                     var pos = {
@@ -86,17 +84,9 @@
                         types: ['gym']
                     };
 
-                    service = new google.maps.places.PlacesService(pos);
-                    service.nearbySearch(request, callback);
+                    // service = new google.maps.places.PlacesService(map);
+                    // service.nearbySearch(request, callback);
 
-                    function callback(results, status) {
-                        if (status == google.maps.places.PlacesServiceStatus.OK) {
-                            for (var i = 0; i < results.length; i++) {
-                                var place = results[i];
-                                createMarker(results[i]);
-                            }
-                        }
-                    }
 
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('Location found.');
@@ -111,6 +101,15 @@
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function callback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    var place = results[i];
+                    createMarker(results[i]);
+                }
             }
         }
 
