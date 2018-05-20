@@ -90,12 +90,12 @@
                     }, callback);
                     service.getDetails({
                         name: map.name,
-                        formatted_address: place.formatted_address,
-                        postal_code: place.postal_code,
-                        formatted_phone_number: place.formatted_phone_number,
-                        html_attributtions: place.html_attributtions,
-                        opening_hours: place.opening_hours
-                        // photos: place.pho
+                        formatted_address: map.formatted_address,
+                        postal_code: map.postal_code,
+                        formatted_phone_number: map.formatted_phone_number,
+                        html_attributtions: map.html_attributtions,
+                        opening_hours: map.opening_hours
+                        // photos: map.pho
                     }, callback);
 
                     function callback(results, status) {
@@ -116,7 +116,7 @@
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent("<p>" + place.name + "</p>" + "<br>" + "<p>" + formatted_address +
+                            infoWindow.setContent("<p>" + name + "</p>" + "<br>" + "<p>" + formatted_address +
                                 "</p>");
                             console.log(place.name);
                             console.log(place.formatted_address);
