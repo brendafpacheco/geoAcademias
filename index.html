@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Place searches</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -11,6 +12,7 @@
             height: 60%;
             width: 100%;
         }
+
         html,
         body {
             height: 100%;
@@ -22,45 +24,48 @@
 
 <body>
     <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                        aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">VP</a>
-                </div>
-    
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="novo.html">Novo</a>
-                        </li>
-                        <li>
-                            <a href="lista.html">Lista</a>
-                        </li>
-                        <li>
-                            <a href="mapa.html">Mapa</a>
-                        </li>
-                    </ul>
-    
-                </div>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">VP</a>
             </div>
-        </nav>
-        <div id="map"></div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="novo.html">Novo</a>
+                    </li>
+                    <li>
+                        <a href="lista.html">Lista</a>
+                    </li>
+                    <li>
+                        <a href="mapa.html">Mapa</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div id="map"></div>
     <script>
         var map;
         var infoWindow;
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
+                center: {
+                    lat: -34.397,
+                    lng: 150.644
+                },
                 zoom: 15
             });
             infoWindow = new google.maps.InfoWindow({
@@ -83,6 +88,7 @@
                         radius: 300,
                         type: ['gym']
                     }, callback);
+
                     function callback(results, status) {
                         if (status === google.maps.places.PlacesServiceStatus.OK) {
                             for (var i = 0; i < results.length; i++) {
@@ -90,6 +96,7 @@
                             }
                         }
                     }
+
                     function createMarker(place) {
                         var placeLoc = place.geometry.location;
                         var marker = new google.maps.Marker({
@@ -98,11 +105,9 @@
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent(place.name + " vai sentando!");
-                            
-infoWindow.setContent(place.adress);
-console.log(place.name);
-console.log(place.adress);
+                            infoWindow.setContent("<p>" + place.name + "</p>" + "<br>" + "<p>" + place.formatted_address + "</p>");
+                            console.log(place.name);
+                            console.log(place.formatted_address );
                             infoWindow.open(map, this);
                         });
                     }
@@ -117,6 +122,7 @@ console.log(place.adress);
                 handleLocationError(false, infoWindow, map.getCenter());
             }
         }
+
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
             infoWindow.setContent(browserHasGeolocation ?
