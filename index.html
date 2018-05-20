@@ -196,7 +196,9 @@
                 center: pyrmont,
                 zoom: 15
             });
-            infoWindow = new google.maps.InfoWindow({map: map});
+            infoWindow = new google.maps.InfoWindow({
+                map: map
+            });
 
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(function (position) {
@@ -208,36 +210,13 @@
                     // infoWindow.setContent('Location found.');
                     // map.setCenter(pos);
                     infoWindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-            location: pos,
-            radius: 500,
-            type: ['hospital']
-        }, callback);
+                    var service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch({
+                        location: pos,
+                        radius: 500,
+                        type: ['hospital']
+                    }, callback);
                     // var teste = pos;
-                }, function () {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                }, {
-                    enableHighAccuracy: true,
-                    maximumAge: 20000,
-                    timeout: 20000
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-        }
-
-
-
-
-        function callback(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    createMarker(results[i]);
-                }
-            }
-        }
         function createMarker(place) {
             var placeLoc = place.geometry.location;
             var marker = new google.maps.Marker({
@@ -250,6 +229,27 @@
                 infoWindow.open(map, this);
             });
         }
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                }, {
+                    enableHighAccuracy: true,
+                    maximumAge: 20000,
+                    timeout: 20000
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+        function callback(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+            }
+        }
+
+
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
@@ -257,7 +257,6 @@
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
         }
-
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzc90nSBntojlneOoLoLHPGfENqqt60Ac&libraries=places&callback=initMap"
         async defer></script>
