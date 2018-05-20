@@ -187,13 +187,10 @@
         var infoWindow;
 
         function initMap() {
-            var pyrmont = {
-                lat: -33.867,
-                lng: 151.195
-            };
+
 
             map = new google.maps.Map(document.getElementById('map'), {
-                center: pyrmont,
+                center: {lat: -34.397, lng: 150.644},
                 zoom: 15
             });
             infoWindow = new google.maps.InfoWindow({
@@ -207,36 +204,36 @@
                         lng: position.coords.longitude
                     };
                     infoWindow.setPosition(pos);
-                    // infoWindow.setContent('Location found.');
-                    // map.setCenter(pos);
-                    infoWindow = new google.maps.InfoWindow();
-                    var service = new google.maps.places.PlacesService(pos);
-                    service.nearbySearch({
-                        location: pos,
-                        radius: 500,
-                        type: ['hospital']
-                    }, callback);
-                    // var teste = pos;
-                    function callback(results, status) {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            for (var i = 0; i < results.length; i++) {
-                                createMarker(results[i]);
-                            }
-                        }
-                    }
+                    infoWindow.setContent('Location found.');
+                    map.setCenter(pos);
+                    // infoWindow = new google.maps.InfoWindow();
+                    // var service = new google.maps.places.PlacesService(pos);
+                    // service.nearbySearch({
+                    //     location: pos,
+                    //     radius: 500,
+                    //     type: ['hospital']
+                    // }, callback);
+                    // // var teste = pos;
+                    // function callback(results, status) {
+                    //     if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    //         for (var i = 0; i < results.length; i++) {
+                    //             createMarker(results[i]);
+                    //         }
+                    //     }
+                    // }
 
-                    function createMarker(place) {
-                        var placeLoc = place.geometry.location;
-                        var marker = new google.maps.Marker({
-                            map: map,
-                            position: place.geometry.location
-                        });
+                    // function createMarker(place) {
+                    //     var placeLoc = place.geometry.location;
+                    //     var marker = new google.maps.Marker({
+                    //         map: map,
+                    //         position: place.geometry.location
+                    //     });
 
-                        google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent(place.name);
-                            infoWindow.open(map, this);
-                        });
-                    }
+                    //     google.maps.event.addListener(marker, 'click', function () {
+                    //         infoWindow.setContent(place.name);
+                    //         infoWindow.open(map, this);
+                    //     });
+                    // }
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
