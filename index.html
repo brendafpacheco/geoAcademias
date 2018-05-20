@@ -88,6 +88,7 @@
                         radius: 300,
                         type: ['gym']
                     }, callback);
+                    
                     service.getDetails({
                         placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
                     }, function (place, status) {
@@ -123,14 +124,14 @@
                             position: place.geometry.location
                         });
 
-                        google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent("<p>" + name + "</p>" + "<br>" + "<p>" +
-                                formatted_address +
-                                "</p>");
-                            console.log(place.name);
-                            console.log(place.formatted_address);
-                            infoWindow.open(map, this);
-                        });
+                        // google.maps.event.addListener(marker, 'click', function () {
+                        //     infoWindow.setContent("<p>" + name + "</p>" + "<br>" + "<p>" +
+                        //         formatted_address +
+                        //         "</p>");
+                        //     console.log(place.name);
+                        //     console.log(place.formatted_address);
+                        //     infoWindow.open(map, this);
+                        // });
                     }
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
