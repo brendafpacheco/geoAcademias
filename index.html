@@ -83,9 +83,9 @@
                         radius: '500',
                         types: ['gym']
                     };
-                    // infoWindow.setPosition(pos);
+                    infoWindow.setPosition(pos);
                     // infoWindow.setContent('Location found.');
-                    // map.setCenter(pos);
+                    map.setCenter(pos);
                     service = new google.maps.places.PlacesService(map);
                     service.nearbySearch(request, callback);
                 }, function () {
