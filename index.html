@@ -88,6 +88,15 @@
                         radius: 300,
                         type: ['gym']
                     }, callback);
+                    service.getDetails({
+                        name: place.name,
+                        formatted_address: place.formatted_address,
+                        postal_code: place.postal_code,
+                        formatted_phone_number: place.formatted_phone_number,
+                        html_attributtions: place.html_attributtions,
+                        opening_hours: place.opening_hours
+                        // photos: place.pho
+                    }, callback);
 
                     function callback(results, status) {
                         if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -97,6 +106,8 @@
                         }
                     }
 
+
+
                     function createMarker(place) {
                         var placeLoc = place.geometry.location;
                         var marker = new google.maps.Marker({
@@ -105,7 +116,8 @@
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent("<p>" + place.name + "</p>" + "<br>" + "<p>" + place.formatted_address + "</p>");
+                            infoWindow.setContent("<p>" + place.name + "</p>" + "<br>" + "<p>" + place.formatted_address +
+                                "</p>");
                             console.log(place.name);
                             console.log(place.formatted_address);
                             infoWindow.open(map, this);
