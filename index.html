@@ -83,10 +83,10 @@
                     var request = {
                         location: pos,
                         radius: '500',
-                        types: ['store']
+                        types: ['gym']
                     };
 
-                    service = new google.maps.places.PlacesService(map);
+                    service = new google.maps.places.PlacesService(pos);
                     service.nearbySearch(request, callback);
 
                     function callback(results, status) {
