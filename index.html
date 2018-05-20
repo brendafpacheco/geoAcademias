@@ -27,20 +27,49 @@
 <body>
     <div id="map"></div>
     <script>
-
-        function initMap() {
         var map;
         var service;
         var infowindow;
+
+        // function initialize() {
+        //     var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+
+        //     map = new google.maps.Map(document.getElementById('map'), {
+        //         center: pyrmont,
+        //         zoom: 15
+        //     });
+
+        //     var request = {
+        //         location: pyrmont,
+        //         radius: '500',
+        //         types: ['store']
+        //     };
+
+        //     service = new google.maps.places.PlacesService(map);
+        //     service.nearbySearch(request, callback);
+        // }
+
+        // function callback(results, status) {
+        //     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        //         for (var i = 0; i < results.length; i++) {
+        //             var place = results[i];
+        //             createMarker(results[i]);
+        //         }
+        //     }
+        // }
+
+
+        function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: -34.397,
                     lng: 150.644
                 },
-                zoom: 15
+                zoom: 14
             });
-            var pyrmont = map.center;
-
+            var infoWindow = new google.maps.InfoWindow({
+                map: map
+            });
 
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
@@ -49,19 +78,20 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    map.setCenter(pos);
+                    var pyrmont = pos;
+
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: pyrmont,
+                        zoom: 15
+                    });
                     var request = {
                         location: pyrmont,
                         radius: '500',
-                        types: ['gym']
+                        types: ['store']
                     };
+
                     service = new google.maps.places.PlacesService(map);
                     service.nearbySearch(request, callback);
-                    var infoWindow = new google.maps.InfoWindow({
-                        map: map
-                    });
 
                     function callback(results, status) {
                         if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -71,6 +101,10 @@
                             }
                         }
                     }
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    map.setCenter(pos);
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
@@ -83,8 +117,6 @@
                 handleLocationError(false, infoWindow, map.getCenter());
             }
         }
-
-
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
