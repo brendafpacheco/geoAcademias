@@ -40,16 +40,15 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
-                    therequest = {
-                    bounds: map.getBounds(),
-                    type: 'gym',
-                    };
-
-                    service.nearbySearch(therequest, callback);
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
+            therequest = {
+                    bounds: map.getBounds(),
+                    type: 'gym',
+                    };
+                    service.nearbySearch(therequest, callback);
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           },  {enableHighAccuracy: true, maximumAge: 20000, timeout: 20000});
