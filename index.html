@@ -210,8 +210,8 @@
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch({
                         location: pos,
-                        radius: 5000,
-                        type: ['gym']
+                        radius: 50000,
+                        type: ['hospital']
                     }, callback);
                     function callback(results, status) {
                         if (status === google.maps.places.PlacesServiceStatus.OK) {
