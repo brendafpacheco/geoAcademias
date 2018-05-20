@@ -192,6 +192,7 @@
                 center: pyrmont,
                 zoom: 15
             });
+            var infoWindow = new google.maps.InfoWindow({map: map});
 
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(function (position) {
