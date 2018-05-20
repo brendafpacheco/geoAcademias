@@ -192,7 +192,7 @@
                 center: pyrmont,
                 zoom: 15
             });
-            var infoWindow = new google.maps.InfoWindow({map: map});
+            infoWindow = new google.maps.InfoWindow({map: map});
 
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(function (position) {
@@ -241,7 +241,7 @@
         service.nearbySearch({
             location: pyrmont,
             radius: 500,
-            type: ['store']
+            type: ['hospital']
         }, callback);
 
 
