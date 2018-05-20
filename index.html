@@ -210,7 +210,7 @@
                     // infoWindow.setContent('Location found.');
                     // map.setCenter(pos);
                     infoWindow = new google.maps.InfoWindow();
-                    var service = new google.maps.places.PlacesService(map);
+                    var service = new google.maps.places.PlacesService(pos);
                     service.nearbySearch({
                         location: pos,
                         radius: 500,
