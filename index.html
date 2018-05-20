@@ -41,16 +41,6 @@
             });
             var pyrmont = map.center;
 
-            var request = {
-                location: pyrmont,
-                radius: '500',
-                types: ['gym']
-            };
-            service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, callback);
-            var infoWindow = new google.maps.InfoWindow({
-                map: map
-            });
 
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
@@ -75,6 +65,16 @@
             }
         }
 
+            var request = {
+                location: pyrmont,
+                radius: '500',
+                types: ['gym']
+            };
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, callback);
+            var infoWindow = new google.maps.InfoWindow({
+                map: map
+            });
         function callback(results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 for (var i = 0; i < results.length; i++) {
