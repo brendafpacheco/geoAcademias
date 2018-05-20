@@ -180,7 +180,7 @@
         // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
         var map;
-        var infowindow;
+        var infoWindow;
 
         function initMap() {
             var pyrmont = {
@@ -224,8 +224,8 @@
             });
 
             google.maps.event.addListener(marker, 'click', function () {
-                infowindow.setContent(place.name);
-                infowindow.open(map, this);
+                infoWindow.setContent(place.name);
+                infoWindow.open(map, this);
             });
         }
 
@@ -235,8 +235,7 @@
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
         }
-
-        infowindow = new google.maps.InfoWindow();
+        infoWindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
             location: pyrmont,
@@ -252,6 +251,7 @@
                 }
             }
         }
+
     </script>
 </head>
 
