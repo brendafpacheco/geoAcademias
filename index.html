@@ -206,12 +206,12 @@
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('Location found.');
                     map.setCenter(pos);
-                    // infoWindow = new google.maps.InfoWindow();
-                    var service = new google.maps.places.PlacesService(pos);
+                    infoWindow = new google.maps.InfoWindow();
+                    var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch({
                         location: pos,
                         radius: 500,
-                        type: ['hospital']
+                        type: ['gym']
                     }, callback);
                     function callback(results, status) {
                         if (status === google.maps.places.PlacesServiceStatus.OK) {
