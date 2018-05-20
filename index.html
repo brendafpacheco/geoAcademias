@@ -98,7 +98,11 @@
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent(place.name);
+                            infoWindow.setContent(place.name + " vai sentando!");
+                            
+infoWindow.setContent(place.adress);
+console.log(place.name);
+console.log(place.adress);
                             infoWindow.open(map, this);
                         });
                     }
