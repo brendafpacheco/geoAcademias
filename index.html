@@ -52,6 +52,25 @@
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('Location found.');
                     map.setCenter(pos);
+                    var request = {
+                        location: pyrmont,
+                        radius: '500',
+                        types: ['gym']
+                    };
+                    service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch(request, callback);
+                    var infoWindow = new google.maps.InfoWindow({
+                        map: map
+                    });
+
+                    function callback(results, status) {
+                        if (status == google.maps.places.PlacesServiceStatus.OK) {
+                            for (var i = 0; i < results.length; i++) {
+                                var place = results[i];
+                                createMarker(results[i]);
+                            }
+                        }
+                    }
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
@@ -65,24 +84,7 @@
             }
         }
 
-            var request = {
-                location: pyrmont,
-                radius: '500',
-                types: ['gym']
-            };
-            service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, callback);
-            var infoWindow = new google.maps.InfoWindow({
-                map: map
-            });
-        function callback(results, status) {
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    var place = results[i];
-                    createMarker(results[i]);
-                }
-            }
-        }
+
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
@@ -90,8 +92,6 @@
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
         }
-
-
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzc90nSBntojlneOoLoLHPGfENqqt60Ac&callback=initMap">
     </script>
