@@ -1,8 +1,8 @@
 {
   "name": "Academias Visitadas",
   "short_name": "VP",
-  "theme_color": "#feec3b",
-  "background_color": "#feec3b",
+  "theme_color": "#0B61A4",
+  "background_color": "#FF9200",
   "display": "fullscreen",
   "orientation": "portrait",
   "Scope": "/academias",
