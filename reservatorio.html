@@ -48,3 +48,43 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VA</title>
+    <link rel="manifest" href="manifest.json">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        if('geolocation' in navigator){
+            const watcher = navigator.geolocation.watchPosition(function(position){
+                console.log(position);
+                document.write(position.coords.latitude);
+                document.write(position.coords.longitude);
+            }, function(error){
+               console.log(error) 
+            }, { enableHighAccuracy: true, maximumAge: 20000, timeout: 20000})
+        }else {
+            alert('ops! não foi possível pegar localização')
+        }
+    </script>
+    <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</body>
+
+</html>
