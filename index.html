@@ -207,7 +207,14 @@
                     // infoWindow.setPosition(pos);
                     // infoWindow.setContent('Location found.');
                     // map.setCenter(pos);
-                    var teste = pos;
+                    infoWindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: pos,
+            radius: 500,
+            type: ['hospital']
+        }, callback);
+                    // var teste = pos;
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
@@ -221,13 +228,7 @@
             }
         }
 
-        infoWindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-            location: teste,
-            radius: 500,
-            type: ['hospital']
-        }, callback);
+
 
 
         function callback(results, status) {
