@@ -33,6 +33,7 @@ function initMap() {
       center: pyrmont,
       zoom: 15
     });
+  service = new google.maps.places.PlacesService(map);
 
   var request = {
     location: pyrmont,
@@ -40,7 +41,6 @@ function initMap() {
     types: ['store']
   };
 
-  service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
 }
 
