@@ -71,6 +71,7 @@
                 map: map
             });
 
+                    
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(function (position) {
@@ -78,14 +79,9 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-                    var pyrmont = pos;
 
-                    map = new google.maps.Map(document.getElementById('map'), {
-                        center: pyrmont,
-                        zoom: 15
-                    });
                     var request = {
-                        location: pyrmont,
+                        location: pos,
                         radius: '500',
                         types: ['store']
                     };
