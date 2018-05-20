@@ -217,18 +217,26 @@
                         type: ['hospital']
                     }, callback);
                     // var teste = pos;
-        function createMarker(place) {
-            var placeLoc = place.geometry.location;
-            var marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location
-            });
+                    function callback(results, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            for (var i = 0; i < results.length; i++) {
+                                createMarker(results[i]);
+                            }
+                        }
+                    }
 
-            google.maps.event.addListener(marker, 'click', function () {
-                infoWindow.setContent(place.name);
-                infoWindow.open(map, this);
-            });
-        }
+                    function createMarker(place) {
+                        var placeLoc = place.geometry.location;
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infoWindow.setContent(place.name);
+                            infoWindow.open(map, this);
+                        });
+                    }
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
@@ -239,13 +247,6 @@
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
-            }
-        }
-        function callback(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    createMarker(results[i]);
-                }
             }
         }
 
