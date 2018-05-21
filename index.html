@@ -149,11 +149,25 @@
                         radius: 300,
                         type: ['gym'],
                         placeId: map.place_id
-                        
                     }, callback);
-                    // service.getDetails({
-                    //     placeId: map.place_id
-                    // }, callback);
+                    
+                    service.getDetails({
+                        placeId: map.place_id
+                    }, function (algumacoisa) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: place.geometry.location
+                            });
+                            google.maps.event.addListener(marker, 'click', function () {
+                                infowindow.setContent('<div><strong>' + place.name +
+                                    '</strong><br>' +
+                                    'Place ID: ' + place.place_id + '<br>' +
+                                    place.formatted_address + '</div>');
+                                infowindow.open(map, this);
+                            });
+                        }
+                    });
 
 
                     function callback(results, status) {
@@ -168,18 +182,15 @@
                         var placeLoc = place.geometry.location;
                         var marker = new google.maps.Marker({
                             map: map,
-                            // position: place.geometry.location
-                            place: {
-                               placeId: place.place_id,
-                               location: place.geometry.location
-                            }
+                            position: place.geometry.location
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
                             infoWindow.setContent('<div><strong>' + place.name +
                                 '</strong><br>' +
-                                'Place ID: ' + place.placeId + '<br>' +
-                                place.formatted_address + '<br>' + place.geometry.location +'</div>');
+                                'Place ID: ' + place.place_id + '<br>' +
+                                place.formatted_address + '<br>' + place.geometry.location +
+                                '</div>');
                             infoWindow.open(map, this);
                         });
                     }
