@@ -178,7 +178,7 @@
                         google.maps.event.addListener(marker, 'click', function () {
                             infoWindow.setContent('<div><strong>' + place.name +
                                 '</strong><br>' +
-                                'Place ID: ' + place.place_id + '<br>' +
+                                'Place ID: ' + place.placeId + '<br>' +
                                 place.formatted_address + '<br>' + place.geometry.location +'</div>');
                             infoWindow.open(map, this);
                         });
