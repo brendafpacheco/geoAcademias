@@ -188,8 +188,8 @@
                                     service.getDetails(place, function (details, status) {
                                         if (status === google.maps.places.PlacesServiceStatus
                                             .OK) {
-                                            infoWindow.setContent(details.name);
-                                            infoWindow.setContent('<div><strong>' + details.name + '</strong><br>' + 'Place ID: ' + place.place_id + '<br>' + place.formatted_address + '</div>');
+                                            // infoWindow.setContent(details.name);
+                                            infoWindow.setContent('<div><strong>' + details.name + '</strong><br>' + 'Place ID: ' + place.place_id + '<br>' + details.formatted_address + '</div>');
                                             // $('#place-details').append(
                                             //   '<span>' + details.name + '</span><br>' +
                                             //   '<span>' + place.formatted_address + '</span>');
