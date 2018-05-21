@@ -178,11 +178,6 @@
                                 });
 
                                 google.maps.event.addListener(marker, 'click', function () {
-                                    infoWindow.setContent('<div><strong>' + place.name +
-                                        '</strong><br>' +
-                                        'Place ID: ' + place.place_id + '<br>' +
-                                        place.formatted_address + '<br>' + place.geometry.location +
-                                        '</div>');
                                     infoWindow.open(map, this);
 
                                     service.getDetails(place, function (details, status) {
