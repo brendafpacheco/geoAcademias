@@ -79,22 +79,19 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-                    // infoWindow.setPosition(pos);
+                    infoWindow.setPosition(new google.maps.Marker({
+                        position: pos,
+                        // map: map,
+                        title: 'Hello World!'
+                    }));
                     // createMarkersss(pos);
-                    // var mark = new google.maps.Marker({
-                    //     position: pos,
-                    //     // map: map,
-                    //     title: 'Hello World!'
-                    // });
+                    // var mark = 
                     // infoWindow.open(mark);
                     
 
                     // infoWindow.setContent('Location found.');
                     // map.setCenter(pos);
-                    map.setCenter(pos, new google.maps.Marker({
-                        position: pos,
-                        title:"foi!"
-                    }));                    
+                    map.setCenter(pos);                    
                     infoWindow = new google.maps.InfoWindow({
                         maxWidth: 200
                     });
