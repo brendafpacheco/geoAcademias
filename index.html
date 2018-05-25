@@ -80,6 +80,7 @@
                         lng: position.coords.longitude
                     };
                     infoWindow.setPosition(pos);
+                    createMarker(pos);
                     // infoWindow.setContent('Location found.');
                     map.setCenter(pos);
                     infoWindow = new google.maps.InfoWindow({
