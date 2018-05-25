@@ -81,17 +81,20 @@
                     };
                     // infoWindow.setPosition(pos);
                     // createMarkersss(pos);
-                    var mark = new google.maps.Marker({
-                        position: pos,
-                        // map: map,
-                        title: 'Hello World!'
-                    });
+                    // var mark = new google.maps.Marker({
+                    //     position: pos,
+                    //     // map: map,
+                    //     title: 'Hello World!'
+                    // });
                     // infoWindow.open(mark);
                     
 
                     // infoWindow.setContent('Location found.');
                     // map.setCenter(pos);
-                    map.setCenter(mark);                    
+                    map.setCenter(pos, new google.maps.Marker({
+                        position: pos,
+                        title:"foi!"
+                    }));                    
                     infoWindow = new google.maps.InfoWindow({
                         maxWidth: 200
                     });
