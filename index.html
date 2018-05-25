@@ -143,7 +143,9 @@
                     infoWindow.setPosition(pos);
                     // infoWindow.setContent('Location found.');
                     map.setCenter(pos);
-                    infoWindow = new google.maps.InfoWindow();
+                    infoWindow = new google.maps.InfoWindow({
+                        maxWidth: 200
+                    });
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch({
                         location: pos,
