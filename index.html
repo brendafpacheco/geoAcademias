@@ -130,7 +130,8 @@
                 zoom: 15
             });
             infoWindow = new google.maps.InfoWindow({
-                map: map
+                map: map,
+                maxWidth: 200
             });
 
             if (navigator.geolocation) {
@@ -186,7 +187,7 @@
                                         '</strong><br>' + 'Place ID: ' + details.place_id +
                                         '<br>' + details.formatted_address + '<br>' +
                                         details.formatted_phone_number + '<br>' + details.opening_hours +
-                                        '</div>').maxWidth('200px');
+                                        '</div>');
                                     // $('#place-details').append(
                                     //   '<span>' + details.name + '</span><br>' +
                                     //   '<span>' + place.formatted_address + '</span>');
