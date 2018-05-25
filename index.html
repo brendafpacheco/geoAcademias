@@ -82,7 +82,7 @@
                     // infoWindow.setPosition(pos);
                     // createMarkersss(pos);
                     var mark = new google.maps.Marker({
-                        position: pos,
+                        position: pos.geometry.location,
                         map: map,
                         title: 'Hello World!'
                     });
