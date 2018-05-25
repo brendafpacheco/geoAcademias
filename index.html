@@ -81,17 +81,43 @@
                     };
                     // infoWindow.setPosition(pos);
                     // createMarkersss(pos);
-                    var mark = new google.maps.Marker({
-                        position: pos.geometry.location,
-                        map: map,
-                        title: 'Hello World!'
-                    });
+                    // var mark = new google.maps.Marker({
+                    //     position: pos.geometry.location,
+                    //     map: map,
+                    //     title: 'Hello World!'
+                    // });
                     // infoWindow.open(mark);
-                    
+
+
+
+
+                    function setMarkers(map) {
+                        var image = {
+                            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                            size: new google.maps.Size(20, 32),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(0, 32)
+                        };
+                        var shape = {
+                            coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                            type: 'poly'
+                        };
+                        for (var i = 0; i < beaches.length; i++) {
+                            var beach = beaches[i];
+                            var marker = new google.maps.Marker({
+                                position: pos.geometry.location,
+                                map: map,
+                                title: 'Hello World!'
+                            });
+                        }
+                    }
+
+
+
 
                     // infoWindow.setContent('Location found.');
                     // map.setCenter(pos);
-                    map.setCenter(pos);                    
+                    map.setCenter(pos);
                     infoWindow = new google.maps.InfoWindow({
                         maxWidth: 200
                     });
