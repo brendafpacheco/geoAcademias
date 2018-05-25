@@ -80,17 +80,20 @@
                         lng: position.coords.longitude
                     };
                     // infoWindow.setPosition(pos);
-                    createMarker(pos);
+                    // createMarkersss(pos);
                     var marker = new google.maps.Marker({
                         position: pos,
-                        map: map,
+                        // map: map,
                         title: 'Hello World!'
                     });
+
                     // infoWindow.setContent('Location found.');
                     map.setCenter(pos);
+
                     infoWindow = new google.maps.InfoWindow({
                         maxWidth: 200
                     });
+
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch({
                         location: pos,
