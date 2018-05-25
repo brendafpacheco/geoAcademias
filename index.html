@@ -81,15 +81,17 @@
                     };
                     // infoWindow.setPosition(pos);
                     // createMarkersss(pos);
-                    var marker = new google.maps.Marker({
+                    var mark = new google.maps.Marker({
                         position: pos,
                         // map: map,
                         title: 'Hello World!'
                     });
+                    // infoWindow.open(mark);
+                    
 
                     // infoWindow.setContent('Location found.');
-                    map.setCenter(pos);
-
+                    // map.setCenter(pos);
+                    map.setCenter(mark);                    
                     infoWindow = new google.maps.InfoWindow({
                         maxWidth: 200
                     });
