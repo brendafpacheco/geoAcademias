@@ -81,7 +81,7 @@ function initMap() {
                                 btnInfo.addEventListener('click', function (e) {
                                     var table = document.querySelector('table');
                                     table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
-                                    localStorage.setItem('id', detail.place_id);
+                                    localStorage.setItem('id', details.place_id);
                                 });
                                 document.querySelector("button.add").addEventListener('click', function(e) {
                                     if(localStorage.getItem('id').indexOf(localStorage.getItem('academias')) === -1)       
