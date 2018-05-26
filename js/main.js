@@ -97,7 +97,7 @@ function initMap() {
                                                     });
     
                                                 // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
-                                            }
+                                            } 
                                         }else {
                                             Persistencia.adiciona(
                                                 'academias', {
