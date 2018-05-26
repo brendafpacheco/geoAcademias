@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <link rel="manifest" href="manifest.json">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
@@ -59,11 +60,21 @@
 
     <script id="source" type="text/x-handlebars-template">
         <div class="entry">
-            {{#academias}}
-                <h3>{{nome}}</h3>
-                <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{endereco}}</p>
-                <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>{{telefone}}</p>
-            {{/academias}}
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            {{#academias}}
+                            <h3>{{nome}}</h3>
+                            <p>
+                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{endereco}}</p>
+                            <p>
+                                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>{{telefone}}</p>
+                            {{/academias}}
+                        </div>
+                    </div>
+                </div>
+            </div>
     </script>
 
 
@@ -76,7 +87,7 @@
             var html = template({
                 academias: Persistencia.carrega('academias')
             });
-            document.querySelector('div.caption').innerHTML = html;
+            document.querySelector('div.academias').innerHTML = html;
         }
     </script>
 
