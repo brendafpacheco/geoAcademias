@@ -88,24 +88,24 @@ function initMap() {
                                     document.querySelector("button.add").addEventListener('click', function (e) {
                                         if(localStorage.getItem('academias') != null) {
                                             if (localStorage.getItem('academias').indexOf(localStorage.getItem('id')) === -1) {
-                                                Persistencia.adiciona(
-                                                    'academias', {
-                                                        id: '"'+ details.place_id + '"',
-                                                        nome: '"' + details.name + '"',
-                                                        endereco: '"' + details.formatted_address + '"',
-                                                        telefone: '"' + details.formatted_phone_number + '"'
-                                                    });
-                                                    alert('deu!');
+                                                // Persistencia.adiciona(
+                                                //     'academias', {
+                                                //         id: '"'+ details.place_id + '"',
+                                                //         nome: '"' + details.name + '"',
+                                                //         endereco: '"' + details.formatted_address + '"',
+                                                //         telefone: '"' + details.formatted_phone_number + '"'
+                                                //     });
+                                                    alert('deu!' +  details.name);
                                                 // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
                                             } 
                                         }else {
-                                            Persistencia.adiciona(
-                                                'academias', {
-                                                    id: '"'+ details.place_id + '"',
-                                                    nome: '"' + details.name + '"',
-                                                    endereco: '"' + details.formatted_address + '"',
-                                                    telefone: '"' + details.formatted_phone_number + '"'
-                                                });
+                                            // Persistencia.adiciona(
+                                            //     'academias', {
+                                            //         id: '"'+ details.place_id + '"',
+                                            //         nome: '"' + details.name + '"',
+                                            //         endereco: '"' + details.formatted_address + '"',
+                                            //         telefone: '"' + details.formatted_phone_number + '"'
+                                            //     });
                                                 alert(details.name);
                                         }
                                     });
