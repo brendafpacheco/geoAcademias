@@ -133,8 +133,13 @@
                             service.getDetails(place, function (details, status) {
                                 if (status === google.maps.places.PlacesServiceStatus
                                     .OK) {
-                                    infoWindow.setContent('<div><strong>' + details.name + '</strong><br><button type="button" class="btn btn-info">Info</button>');
-
+                                    infoWindow.setContent('<div><strong>' + details.name +
+                                        '</strong><br><button type="button" class="btn btn-outline-info btn-sm">Info</button>'
+                                    );
+                                    var btnInfo = document.querySelector("button.btn");
+                                    btnInfo.addEventListener('click', function(){
+                                        alert("I KEEP DANCING ON MY OWN");
+                                    });
                                     // infoWindow.setContent('<div><strong>' + details.name +
                                     //     '</strong><br>' + 'Place ID: ' + details.place_id +
                                     //     '<br>' + details.formatted_address + '<br>' +
