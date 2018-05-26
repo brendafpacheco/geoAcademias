@@ -37,7 +37,13 @@
         </div>
     </nav>
     <div id="map"></div>
-    <div class="academias"></div>
+    <div class="academias">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -51,19 +57,15 @@
 
     <script id="source" type="text/x-handlebars-template">
         <div class="entry">
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            {{#academias}}
-                            <h3>{{nome}}</h3>
-                            <p>
-                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{endereco}}</p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>{{telefone}}</p>
-                            {{/academias}}
-                        </div>
-                    </div>
+            <div class="thumbnail">
+                <div class="caption">
+                    {{#academias}}
+                    <h3>{{nome}}</h3>
+                    <p>
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{endereco}}</p>
+                    <p>
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>{{telefone}}</p>
+                    {{/academias}}
                 </div>
             </div>
     </script>
@@ -78,7 +80,7 @@
             var html = template({
                 academias: Persistencia.carrega('academias')
             });
-            document.querySelector('div.academias').innerHTML = html;
+            document.querySelector('div.col-sm-6').innerHTML = html;
         }
     </script>
 
