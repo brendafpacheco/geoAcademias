@@ -95,7 +95,7 @@ function initMap() {
                                                         endereco: details.formatted_address,
                                                         telefone: details.formatted_phone_number
                                                     });
-    
+                                                    alert('deu!');
                                                 // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
                                             } 
                                         }else {
