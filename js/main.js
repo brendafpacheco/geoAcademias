@@ -92,20 +92,20 @@ function initMap() {
                                             if (localStorage.getItem('academias').indexOf(localStorage.getItem('id')) === -1) {
                                                 Persistencia.adiciona(
                                                     'academias', {
-                                                        id: '"'+ details.place_id + '"',
-                                                        nome: '"' + details.name + '"',
-                                                        endereco: '"' + details.formatted_address + '"',
-                                                        telefone: '"' + details.formatted_phone_number + '"'
+                                                        id: details.place_id ,
+                                                        nome:  details.name ,
+                                                        endereco:  details.formatted_address ,
+                                                        telefone:  details.formatted_phone_number 
                                                     });
                                                 // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
                                             } 
                                         }else {
                                             Persistencia.adiciona(
                                                 'academias', {
-                                                    id: '"'+ details.place_id + '"',
-                                                    nome: '"' + details.name + '"',
-                                                    endereco: '"' + details.formatted_address + '"',
-                                                    telefone: '"' + details.formatted_phone_number + '"'
+                                                    id: details.place_id ,
+                                                    nome:  details.name ,
+                                                    endereco:  details.formatted_address ,
+                                                    telefone:  details.formatted_phone_number 
                                                 });
                                         }
                                     });
