@@ -47,7 +47,7 @@ function initMap() {
                 var service = new google.maps.places.PlacesService(map);
                 service.nearbySearch({
                     location: pos,
-                    radius: 300,
+                    radius: 4000,
                     type: ['gym'],
                     placeId: map.place_id
                 }, callback);
