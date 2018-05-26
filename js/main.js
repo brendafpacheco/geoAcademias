@@ -82,11 +82,12 @@ function initMap() {
                                     var table = document.querySelector('table');
                                     table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
                                     localStorage.setItem('id', details.place_id);
-                                    const btnAdd = document.querySelector(".add");
+                                    add(document.querySelector(".add"));
                                 });
 
                                 // if (document.querySelector('body').innerHTML.indexOf('<button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>') != -1) {
-                                    btnAdd.addEventListener('click', function (e) {
+                                   function add (e) {
+                                    e.addEventListener('click', function (e) {
                                         if(localStorage.getItem('academias') != null) {
                                             if (localStorage.getItem('academias').indexOf(localStorage.getItem('id')) === -1) {
                                                 // Persistencia.adiciona(
@@ -110,6 +111,7 @@ function initMap() {
                                                 alert(details.name);
                                         }
                                     });
+                                   }
                                 // }
                             }
                         });
