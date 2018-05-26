@@ -88,8 +88,6 @@
                                 lat: position.coords.latitude,
                                 lng: position.coords.longitude
                             };
-                            // infoWindow.setPosition(pos);
-                            // infoWindow.open(mark);
                             setMarkers(map);
 
                             function setMarkers(map) {
@@ -148,15 +146,16 @@
                                                     localStorage.setItem('telefone', details.formatted_phone_number);
                                                     var btnInfo = document.querySelector("button.btn");
                                                     btnInfo.addEventListener('click', function (e) {
-                                                                // Persistencia.adiciona(
-                                                                //     'academia', {
-                                                                //         nome: details.name,
-                                                                //         endereco: details.formatted_address,
-                                                                //         telefone: details.formatted_phone_number
-                                                                //     });
-                                                                // E:nth-child(n)
-                                                                console.log(document.querySelector('tr:nth-child(1)').textContent);
+                                                                Persistencia.adiciona(
+                                                                    'academias', {
+                                                                        nome: details.name,
+                                                                        endereco: details.formatted_address,
+                                                                        telefone: details.formatted_phone_number
+                                                                    });
+                                                                
+                                                                document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
                                                                 // if(document.querySelector('[thead].nthchild(1)').textContent === false) {
+                                                                    // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 
                                                                 // }
                                                             });
@@ -192,6 +191,7 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzc90nSBntojlneOoLoLHPGfENqqt60Ac&libraries=places&callback=initMap"
             async defer></script>
+            <script src="js/persistencia.js"></script>
 </body>
 
 </html>
