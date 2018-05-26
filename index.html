@@ -10,7 +10,7 @@
     <style>
         #map {
             height: 60%;
-            width: 100%;
+            width: 80%;
         }
 
         html,
@@ -86,11 +86,6 @@
                     function setMarkers(map) {
                         var image = {
                             url: 'alfinete.png'
-                            //MELHOR SEM!!!!!!!!! 
-
-                            // size: new google.maps.Size(0, 32),
-                            // origin: new google.maps.Point(0, 0),
-                            // anchor: new google.maps.Point(0, 32)
                         };
                         var shape = {
                             coords: [1, 1, 1, 20, 18, 20, 18, 1],
@@ -99,15 +94,11 @@
                         var marker = new google.maps.Marker({
                             position: pos,
                             map: map,
-                            title: 'Hello World!',
+                            title: 'Você está aqui!!',
                             icon: image
-                        });
-                        google.maps.event.addListener(marker, 'hover', function(){
-                            marker.title('você está aqui!');
                         });
                     }
 
-                    // infoWindow.setContent('Location found.');
                     map.setCenter(pos);
                     infoWindow = new google.maps.InfoWindow({
                         maxWidth: 200
@@ -144,7 +135,7 @@
                                         '</strong><br>' + 'Place ID: ' + details.place_id +
                                         '<br>' + details.formatted_address + '<br>' +
                                         details.formatted_phone_number + '<br>' + details.opening_hours +
-                                        '</div>');
+                                        '</div>' + '<div>Add to your list </div>');
                                 }
                             });
                             infoWindow.open(map, this);
