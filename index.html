@@ -136,9 +136,12 @@
                                     infoWindow.setContent('<div><strong>' + details.name +
                                         '</strong><br><button type="button" class="btn btn-outline-info btn-sm">Info</button>'
                                     );
+                                        localStorage.setItem('nome', details.name);
+                                        localStorage.setItem('endereco', details.formatted_address);
+                                        localStorage.setItem('telefone', details.formatted_phone_number);
                                     var btnInfo = document.querySelector("button.btn");
                                     btnInfo.addEventListener('click', function(){
-                                        alert("I KEEP DANCING ON MY OWN");
+                                        
                                     });
                                     // infoWindow.setContent('<div><strong>' + details.name +
                                     //     '</strong><br>' + 'Place ID: ' + details.place_id +
