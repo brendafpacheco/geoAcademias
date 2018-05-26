@@ -86,7 +86,19 @@ function initMap() {
 
                                 if (document.querySelector('body').innerHTML.indexOf('<button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>') != -1) {
                                     document.querySelector("button.add").addEventListener('click', function (e) {
-                                        if (localStorage.getItem('id').indexOf(localStorage.getItem('academias')) === -1) {
+                                        if(localStorage.getItem('academias') != null) {
+                                            if (localStorage.getItem('id').indexOf(localStorage.getItem('academias')) === -1) {
+                                                Persistencia.adiciona(
+                                                    'academias', {
+                                                        id: details.place_id,
+                                                        nome: details.name,
+                                                        endereco: details.formatted_address,
+                                                        telefone: details.formatted_phone_number
+                                                    });
+    
+                                                // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
+                                            }
+                                        }else {
                                             Persistencia.adiciona(
                                                 'academias', {
                                                     id: details.place_id,
@@ -94,8 +106,6 @@ function initMap() {
                                                     endereco: details.formatted_address,
                                                     telefone: details.formatted_phone_number
                                                 });
-
-                                            // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
                                         }
                                     });
                                 }
