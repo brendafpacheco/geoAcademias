@@ -80,7 +80,7 @@ function initMap() {
                                 var btnInfo = document.querySelector("button.btn");
                                 btnInfo.addEventListener('click', function (e) {
                                     var table = document.querySelector('table');
-                                    table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + details.place_id + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
+                                    table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
                                     localStorage.setItem('id', details.place_id);
                                 });
 
@@ -90,10 +90,10 @@ function initMap() {
                                             if (localStorage.getItem('academias').indexOf(localStorage.getItem('id')) === -1) {
                                                 Persistencia.adiciona(
                                                     'academias', {
-                                                        id: details.place_id,
-                                                        nome: details.name,
-                                                        endereco: details.formatted_address,
-                                                        telefone: details.formatted_phone_number
+                                                        id: '"'+ details.place_id + '"',
+                                                        nome: '"' + details.name + '"',
+                                                        endereco: '"' + details.formatted_address + '"',
+                                                        telefone: '"' + details.formatted_phone_number + '"'
                                                     });
                                                     alert('deu!');
                                                 // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
@@ -101,10 +101,10 @@ function initMap() {
                                         }else {
                                             Persistencia.adiciona(
                                                 'academias', {
-                                                    id: details.place_id,
-                                                    nome: details.name,
-                                                    endereco: details.formatted_address,
-                                                    telefone: details.formatted_phone_number
+                                                    id: '"'+ details.place_id + '"',
+                                                    nome: '"' + details.name + '"',
+                                                    endereco: '"' + details.formatted_address + '"',
+                                                    telefone: '"' + details.formatted_phone_number + '"'
                                                 });
                                         }
                                     });
