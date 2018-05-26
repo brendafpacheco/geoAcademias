@@ -84,7 +84,7 @@ function initMap() {
                                     localStorage.setItem('id', details.place_id);
                                 });
 
-                                if (document.querySelector('body').indexOf('Adicionar à Lista') != -1) {
+                                if (document.querySelector('body').innerHTML.indexOf('<button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>') != -1) {
                                     document.querySelector("button.add").addEventListener('click', function (e) {
                                         if (localStorage.getItem('id').indexOf(localStorage.getItem('academias')) === -1) {
                                             Persistencia.adiciona(
