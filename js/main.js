@@ -80,7 +80,7 @@ function initMap() {
                                 var btnInfo = document.querySelector("button.btn");
                                 btnInfo.addEventListener('click', function (e) {
                                     var table = document.querySelector('table');
-                                    table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
+                                    table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + details.place_id + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
                                     localStorage.setItem('id', details.place_id);
                                 });
 
