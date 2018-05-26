@@ -52,18 +52,18 @@
     </div> -->
 
     <table class="table table-striped">
-            <thead>
-              <tr>
+        <thead>
+            <tr>
                 <th>Nome</th>
                 <th>Endereço</th>
                 <th>Telefone</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
                 <td colspan="3">Nenhum registro encontrado</td>
-              </tr>
-            </tbody>
+            </tr>
+        </tbody>
     </table>
 
 
@@ -77,29 +77,29 @@
     <script src="js/persistencia.js"></script>
 
     <script id="source" type="text/x-handlebars-template">
-      <div class="entry">
-        {{#academias}}
-          <tr>
-            <td>{{nome}}</td>
-            <td>{{endereco}}</td>
-            <td>{{telefone}}</td>
-          </tr>
-        {{/academias}}
+        <div class="entry">
+            {{#academias}}
+            <tr>
+                <td>{{nome}}</td>
+                <td>{{endereco}}</td>
+                <td>{{telefone}}</td>
+            </tr>
+            {{/academias}}
     </script>
 
 
+    <script src="js/main.js"></script>
 
     <script>
-            if (Persistencia.existe('academias')) {
-              var source   = document.querySelector("#source").innerHTML;
-              var template = Handlebars.compile(source);
-              var html = template({
+        if (Persistencia.existe('academias')) {
+            var source = document.querySelector("#source").innerHTML;
+            var template = Handlebars.compile(source);
+            var html = template({
                 academias: Persistencia.carrega('academias')
-              });
-              document.querySelector('tbody').innerHTML = html;
-            }
-          </script>
-    <script src="js/main.js"></script>
+            });
+            document.querySelector('tbody').innerHTML = html;
+        }
+    </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzc90nSBntojlneOoLoLHPGfENqqt60Ac&libraries=places&callback=initMap"
         async defer></script>
