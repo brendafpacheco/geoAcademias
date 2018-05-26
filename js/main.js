@@ -82,18 +82,18 @@ function initMap() {
                                     var table = document.querySelector('table');
                                     table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
                                     localStorage.setItem('id', details.place_id);
-                                });
-                                document.querySelector("button.add").addEventListener('click', function(e) {
-                                    if(localStorage.getItem('id').indexOf(localStorage.getItem('academias')) === -1)       
-                                    Persistencia.adiciona(
-                                        'academias', {
-                                            id: details.place_id,
-                                            nome: details.name,
-                                            endereco: details.formatted_address,
-                                            telefone: details.formatted_phone_number
-                                        });
-
-                                    // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
+                                    document.querySelector("button.add").addEventListener('click', function(e) {
+                                        if(localStorage.getItem('id').indexOf(localStorage.getItem('academias')) === -1)       
+                                        Persistencia.adiciona(
+                                            'academias', {
+                                                id: details.place_id,
+                                                nome: details.name,
+                                                endereco: details.formatted_address,
+                                                telefone: details.formatted_phone_number
+                                            });
+    
+                                        // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
+                                    });
                                 });
 
                             }
