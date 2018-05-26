@@ -102,6 +102,9 @@
                             title: 'Hello World!',
                             icon: image
                         });
+                        google.maps.event.addListener(marker, 'hover', function(){
+                            marker.title('você está aqui!');
+                        });
                     }
 
                     // infoWindow.setContent('Location found.');
