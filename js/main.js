@@ -67,7 +67,7 @@ function initMap() {
                         position: place.geometry.location
                     });
 
-                    google.maps.event.addListener(marker, 'click', function () {
+                    google.maps.event.addListener(marker, 'hover', function () {
                         service.getDetails(place, function (details, status) {
                             if (status === google.maps.places.PlacesServiceStatus
                                 .OK) {
