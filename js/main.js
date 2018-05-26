@@ -74,25 +74,13 @@ function initMap() {
                                 infoWindow.setContent('<div><strong>' + details.name +
                                     '</strong><br><button type="button" class="btn btn-link btn-sm">More Info</button>'
                                 );
-                                localStorage.setItem('nome', details.name);
-                                localStorage.setItem('endereco', details.formatted_address);
-                                localStorage.setItem('telefone', details.formatted_phone_number);
+                                // localStorage.setItem('nome', details.name);
+                                // localStorage.setItem('endereco', details.formatted_address);
+                                // localStorage.setItem('telefone', details.formatted_phone_number);
                                 var btnInfo = document.querySelector("button.btn");
                                 btnInfo.addEventListener('click', function (e) {
                                     var table = document.querySelector('table');
-                                    table.innerHTML = "<tr><td><strong>Nome</strong></td> <td>" + details.name + "</td> </tr><tr><td><strong>Endereço</strong></td> <td>" + details.formatted_address + "</td> </tr><tr><td><strong>Telefone</strong></td> <td>" + details.formatted_phone_number + "</td></tr>";
-                                    
-                                    
-                                    
-                                    // Persistencia.adiciona(
-                                    //     'academias', {
-                                    //         nome: details.name,
-                                    //         endereco: details.formatted_address,
-                                    //         telefone: details.formatted_phone_number
-                                    //     });
-
-                                    // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
-
+                                    table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm">Adicionar à Lista</button>';
                                 });
                             }
                         });
