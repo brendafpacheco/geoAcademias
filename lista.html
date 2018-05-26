@@ -40,8 +40,6 @@
     <div class="academias">
         <div class="row">
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                </div>
             </div>
         </div>
     </div>
@@ -60,13 +58,16 @@
     <script id="source" type="text/x-handlebars-template">
         <div class="entry">
             {{#academias}}
-            <div class="caption">
-                <h3>{{nome}}</h3>
-                <p>
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{endereco}}</p>
-                <p>
-                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>{{telefone}}</p>
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>{{nome}}</h3>
+                    <p>
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{endereco}}</p>
+                    <p>
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>{{telefone}}</p>
+                </div>
             </div>
+
             {{/academias}}
     </script>
 
@@ -80,7 +81,7 @@
             var html = template({
                 academias: Persistencia.carrega('academias')
             });
-            document.querySelector('div.thumbnail').innerHTML = html;
+            document.querySelector('div.col-sm-6').innerHTML = html;
         }
     </script>
 
