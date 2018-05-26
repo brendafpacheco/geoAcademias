@@ -80,21 +80,14 @@
                         lng: position.coords.longitude
                     };
                     // infoWindow.setPosition(pos);
-                    // createMarkersss(pos);
-                    // var mark = new google.maps.Marker({
-                    //     position: pos.geometry.location,
-                    //     map: map,
-                    //     title: 'Hello World!'
-                    // });
                     // infoWindow.open(mark);
-
-
-
                     setMarkers(map);
 
                     function setMarkers(map) {
                         var image = {
                             url: 'alfinete.png'
+                            //MELHOR SEM!!!!!!!!! 
+
                             // size: new google.maps.Size(0, 32),
                             // origin: new google.maps.Point(0, 0),
                             // anchor: new google.maps.Point(0, 32)
@@ -111,11 +104,7 @@
                         });
                     }
 
-
-
-
                     // infoWindow.setContent('Location found.');
-                    // map.setCenter(pos);
                     map.setCenter(pos);
                     infoWindow = new google.maps.InfoWindow({
                         maxWidth: 200
@@ -144,19 +133,19 @@
                             position: place.geometry.location
                         });
 
-                        // google.maps.event.addListener(marker, 'click', function () {
-                        //     service.getDetails(place, function (details, status) {
-                        //         if (status === google.maps.places.PlacesServiceStatus
-                        //             .OK) {
-                        //             infoWindow.setContent('<div><strong>' + details.name +
-                        //                 '</strong><br>' + 'Place ID: ' + details.place_id +
-                        //                 '<br>' + details.formatted_address + '<br>' +
-                        //                 details.formatted_phone_number + '<br>' + details.opening_hours +
-                        //                 '</div>');
-                        //         }
-                        //     });
-                        //     infoWindow.open(map, this);
-                        // });
+                        google.maps.event.addListener(marker, 'click', function () {
+                            service.getDetails(place, function (details, status) {
+                                if (status === google.maps.places.PlacesServiceStatus
+                                    .OK) {
+                                    infoWindow.setContent('<div><strong>' + details.name +
+                                        '</strong><br>' + 'Place ID: ' + details.place_id +
+                                        '<br>' + details.formatted_address + '<br>' +
+                                        details.formatted_phone_number + '<br>' + details.opening_hours +
+                                        '</div>');
+                                }
+                            });
+                            infoWindow.open(map, this);
+                        });
                     }
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
