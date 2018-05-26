@@ -106,6 +106,7 @@ function initMap() {
                                                     endereco: '"' + details.formatted_address + '"',
                                                     telefone: '"' + details.formatted_phone_number + '"'
                                                 });
+                                                alert(details.name);
                                         }
                                     });
                                 }
