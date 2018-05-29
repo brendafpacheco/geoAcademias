@@ -71,21 +71,17 @@ function initMap() {
                         service.getDetails(place, function (details, status) {
                             if (status === google.maps.places.PlacesServiceStatus
                                 .OK) {
-                                infoWindow.setContent('<div><strong>' + details.name +
-                                    '</strong><br><button type="button" class="btn btn-link btn-sm">More Info</button>'
-                                );
-                                // localStorage.setItem('nome', details.name);
-                                // localStorage.setItem('endereco', details.formatted_address);
-                                // localStorage.setItem('telefone', details.formatted_phone_number);
-                                var btnInfo = document.querySelector("button.btn");
-                                btnInfo.addEventListener('click', function (e) {
+                                // infoWindow.setContent('<div><strong>' + details.name +
+                                //     '</strong><br><button type="button" class="btn btn-link btn-sm">More Info</button>'
+                                // );
+                                // var btnInfo = document.querySelector("button.btn");
+                                // btnInfo.addEventListener('click', function (e) {
                                     var table = document.querySelector('table');
                                     table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
                                     localStorage.setItem('id', details.place_id);
                                     add(document.querySelector(".add"));
-                                });
+                                // });
 
-                                // if (document.querySelector('body').innerHTML.indexOf('<button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>') != -1) {
                                    function add (e) {
                                     e.addEventListener('click', function (e) {
                                         if(localStorage.getItem('academias') != null) {
@@ -97,7 +93,6 @@ function initMap() {
                                                         endereco:  details.formatted_address ,
                                                         telefone:  details.formatted_phone_number 
                                                     });
-                                                // document.querySelector('tr:nth-child(1)').textContent = localStorage.getItem('nome');
                                             } 
                                         }else {
                                             Persistencia.adiciona(
