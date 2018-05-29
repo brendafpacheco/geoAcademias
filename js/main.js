@@ -40,9 +40,9 @@ function initMap() {
                 }
 
                 map.setCenter(pos);
-                infoWindow = new google.maps.InfoWindow({
-                    maxWidth: 200
-                });
+                // infoWindow = new google.maps.InfoWindow({
+                //     maxWidth: 200
+                // });
 
                 var service = new google.maps.places.PlacesService(map);
                 service.nearbySearch({
@@ -71,42 +71,43 @@ function initMap() {
                         service.getDetails(place, function (details, status) {
                             if (status === google.maps.places.PlacesServiceStatus
                                 .OK) {
-                                infoWindow.setContent(details.name);
+                                // infoWindow.setContent(details.name);
+
+
                                 // infoWindow.setContent('<div><strong>' + details.name +
                                 //     '</strong><br><button type="button" class="btn btn-link btn-sm">More Info</button>'
                                 // );
                                 // var btnInfo = document.querySelector("button.btn");
                                 // btnInfo.addEventListener('click', function (e) {
-                                    var table = document.querySelector('table');
-                                    table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
-                                    localStorage.setItem('id', details.place_id);
-                                    add(document.querySelector(".add"));
+                                var table = document.querySelector('table');
+                                table.innerHTML = '<tr><td><strong>Nome</strong></td> <td>' + details.name + '</td> </tr><tr><td><strong>Endereço</strong></td> <td>' + details.formatted_address + '</td> </tr><tr><td><strong>Telefone</strong></td> <td>' + details.formatted_phone_number + '</td></tr><button type="button" class="btn btn-primary btn-sm add">Adicionar à Lista</button>';
+                                localStorage.setItem('id', details.place_id);
+                                add(document.querySelector(".add"));
                                 // });
 
-                                   function add (e) {
+                                function add(e) {
                                     e.addEventListener('click', function (e) {
-                                        if(localStorage.getItem('academias') != null) {
+                                        if (localStorage.getItem('academias') != null) {
                                             if (localStorage.getItem('academias').indexOf(localStorage.getItem('id')) === -1) {
                                                 Persistencia.adiciona(
                                                     'academias', {
-                                                        id: details.place_id ,
-                                                        nome:  details.name ,
-                                                        endereco:  details.formatted_address ,
-                                                        telefone:  details.formatted_phone_number 
+                                                        id: details.place_id,
+                                                        nome: details.name,
+                                                        endereco: details.formatted_address,
+                                                        telefone: details.formatted_phone_number
                                                     });
-                                            } 
-                                        }else {
+                                            }
+                                        } else {
                                             Persistencia.adiciona(
                                                 'academias', {
-                                                    id: details.place_id ,
-                                                    nome:  details.name ,
-                                                    endereco:  details.formatted_address ,
-                                                    telefone:  details.formatted_phone_number 
+                                                    id: details.place_id,
+                                                    nome: details.name,
+                                                    endereco: details.formatted_address,
+                                                    telefone: details.formatted_phone_number
                                                 });
                                         }
                                     });
-                                   }
-                                // }
+                                }
                             }
                         });
                         infoWindow.open(map, this);
