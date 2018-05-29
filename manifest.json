@@ -7,8 +7,7 @@
   "orientation": "portrait",
   "Scope": "/academias",
   "start_url": "https://brendafpacheco.github.io/geoAcademias/index.html",
-  "icons": [
-    {
+  "icons": [{
       "src": "images/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png"

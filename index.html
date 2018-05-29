@@ -27,12 +27,15 @@
             padding-right: 5%;
             padding-left: 1%;
         }
+
         nav {
             background-color: #663399 !important;
         }
+
         a.navbar-brand {
             color: #ffffff !important;
         }
+
         button span {
             background-color: #ffffff !important;
         }
@@ -79,9 +82,7 @@
         </table>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
@@ -93,7 +94,6 @@
         if (navigator.serviceWorker.controller) {
             console.log('[PWA Builder] active service worker found, no need to register')
         } else {
-            //Register the ServiceWorker
             navigator.serviceWorker.register('sw.js', {
                 scope: './'
             }).then(function (reg) {
