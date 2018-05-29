@@ -71,6 +71,7 @@ function initMap() {
                         service.getDetails(place, function (details, status) {
                             if (status === google.maps.places.PlacesServiceStatus
                                 .OK) {
+                                infoWindow.setContent(details.name);
                                 // infoWindow.setContent('<div><strong>' + details.name +
                                 //     '</strong><br><button type="button" class="btn btn-link btn-sm">More Info</button>'
                                 // );
